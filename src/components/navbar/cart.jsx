@@ -1,15 +1,17 @@
 "use client"
-import { Button, LinearProgress } from '@mui/material'
+
 import React, { useEffect, useState } from 'react'
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useGetAllProductQuery } from '@/redux/api/productApi';
-import { Minus, Plus } from 'lucide-react';
+import { DeleteIcon, Minus, Plus, ShoppingCartIcon } from 'lucide-react';
 import { addToCart, changeQuantity, clearCart, removeCart } from '@/redux/cart/cart';
-import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
+
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { cartSVG } from '../loading/CartIcon';
+import { Button } from '../ui/button';
+import LineLoader from '../loading/loading';
 export default function Cart({ openCart, setOpenCart }) {
     const cartItems = useSelector((state) => state.cart.items); // Update according to your slice
     const [totalQyt, setTotalQyt] = useState(0);
@@ -38,7 +40,7 @@ export default function Cart({ openCart, setOpenCart }) {
     return (
         <section>
             <Button onClick={() => setOpenCart(!openCart)} variant="outlined" className="relative text-white flex  items-center space-x-2 hover:text-indigo-300" >
-                <ShoppingCartRoundedIcon className='text-primary' />
+                <ShoppingCartIcon className='text-primary' />
                 <span className=' rounded-full   border border-primary text-primary text-sm px-2 py-0.5'>{Number(totalQyt || 0)}</span>
             </Button>
 
@@ -49,7 +51,7 @@ export default function Cart({ openCart, setOpenCart }) {
   ${openCart ? 'lg:w-[25vw] w-full h-[50vh]  pb-4 overflow-hidden bg-white' : 'lg:w-[25vw] w-full overflow-hidden pb-0 h-[0] bg-white'}`}
             >
                 <section className="space-y-4 overflow-auto p-4 scroll-thin">
-                    {isLoading && <li><LinearProgress /></li>}
+                    {isLoading && <li><LineLoader /></li>}
                     {
                         allCarts?.length > 0 &&
                         allCarts?.map((item, id) => (
@@ -112,7 +114,7 @@ export default function Cart({ openCart, setOpenCart }) {
                                     onClick={() => dispatch(removeCart({ productId: item.product_id }))}
                                     className="text-gray-500 hover:text-red-600 transition"
                                 >
-                                    <DeleteRoundedIcon className="w-6 h-6" />
+                                    <DeleteIcon className="w-6 h-6" />
                                 </button>
                             </div>
                         ))

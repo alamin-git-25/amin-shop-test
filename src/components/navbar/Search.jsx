@@ -9,9 +9,7 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog";
-import CloseIcon from '@mui/icons-material/Close';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import { X } from 'lucide-react';
+import { SearchIcon, X } from 'lucide-react';
 import { useGetAllProductQuery } from '@/redux/api/productApi';
 import { useRouter } from 'next/navigation';
 export default function SearchBar({ openBox, setOpenBox }) {
@@ -50,7 +48,7 @@ export default function SearchBar({ openBox, setOpenBox }) {
                                 className="mt-6 outline-indigo-300 w-full h-12 sub-shad border bg-transparent border-gray-200 px-3 font-poppins rounded-md  shadow-sm sm:text-xl"
                             />
 
-                            <SearchRoundedIcon className='absolute top-9 right-6' />
+                            <SearchIcon className='absolute top-9 right-6' />
                         </div>
                         <div className='mt-5 scroll-thin pr-1 overflow-auto gap-4 grid lg:grid-cols-4 grid-cols-1 max-h-[60vh] '>
                             {filteredProducts?.length ? (

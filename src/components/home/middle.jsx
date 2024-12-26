@@ -7,8 +7,8 @@ import { useGetAllProductQuery } from '@/redux/api/productApi';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/cart/cart';
-import { Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
+import { Button } from '../ui/button';
 
 export default function Middle() {
     const { data: products, isLoading } = useGetAllProductQuery(undefined, {

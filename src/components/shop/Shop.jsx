@@ -6,12 +6,14 @@ import AnimatedDropdown from '../select/DropDown';
 import SearchInput from './SearchBar';
 import { motion } from 'framer-motion'
 import { useGetAllProductQuery } from '@/redux/api/productApi';
-import { Button, LinearProgress } from '@mui/material';
+
 import Image from 'next/image';
 import Heading from '../Admin/Heading';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '@/redux/cart/cart';
 import { useRouter } from 'next/navigation';
+import { Button } from '../ui/button';
+import LineLoader from '../loading/loading';
 
 
 export default function Shops() {
@@ -72,7 +74,7 @@ export default function Shops() {
                             <Heading value={selectedCategory} className="col-span-4" />
                             {
                                 isLoading && <div className='col-span-4'>
-                                    <LinearProgress />
+                                    <LineLoader />
                                 </div>
                             }
                             {filteredProducts?.length ? (

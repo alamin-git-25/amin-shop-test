@@ -1,6 +1,7 @@
 "use client"
+import { Search } from 'lucide-react';
 import React, { useState } from 'react';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+
 export default function SearchInput({ search, setSearch }) {
 
 
@@ -10,7 +11,7 @@ export default function SearchInput({ search, setSearch }) {
         <form className="relative w-full  mx-auto">
             {/* Search Icon */}
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                <SearchRoundedIcon />
+                <Search />
             </span>
 
             {/* Search Input */}
