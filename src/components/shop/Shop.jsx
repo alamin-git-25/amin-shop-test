@@ -14,6 +14,7 @@ import { addToCart } from '@/redux/cart/cart';
 import { useRouter } from 'next/navigation';
 import { Button } from '../ui/button';
 import LineLoader from '../loading/loading';
+import { LinearProgress } from '@mui/material';
 
 
 export default function Shops() {

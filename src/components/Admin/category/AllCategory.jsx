@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { useRouter } from 'next/navigation';
 import { useDeleteCategoryMutation, useGetAllCategoryQuery } from '@/redux/api/categoryApi';
 import Heading from '../Heading';
+import LineLoader from '@/components/loading/loading';
 
 
 export default function AllCategory() {
@@ -63,7 +64,7 @@ export default function AllCategory() {
                         {
                             isLoading && <TableRow>
                                 <TableCell className='w-full flex justify-center items-center'>
-                                    <LinearProgress />
+                                    <LineLoader />
                                 </TableCell>
                             </TableRow>
                         }

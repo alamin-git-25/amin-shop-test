@@ -4,7 +4,7 @@ import Nav from "@/components/navbar/nav";
 import ReduxProvider from "@/redux/storeProvider";
 import Provider from "@/components/auth/Provider";
 import Footer from "@/components/custom-ui/Footer";
-
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,13 +26,15 @@ export default function RootLayout({ children }) {
     <html className="scroll-thin">
       <body
       >
-        <Provider>
-          <ReduxProvider>
-            <Nav />
-            {children}
-            <Footer />
-          </ReduxProvider>
-        </Provider>
+        <AppRouterCacheProvider>
+          <Provider>
+            <ReduxProvider>
+              <Nav />
+              {children}
+              <Footer />
+            </ReduxProvider>
+          </Provider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );
